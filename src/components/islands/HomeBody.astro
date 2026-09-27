@@ -1,0 +1,118 @@
+---
+// Homepage body as a Tina island. Every data-tina-field marks the element as
+// clickable in the visual editor and points at the form field behind it.
+// The suburb chips deliberately have no tina-field: they come from
+// src/config/business.ts, which also feeds the schema areaServed so the two
+// cannot drift apart.
+import { tinaField } from '@tinacms/astro/tina-field';
+import { business } from '../../config/business';
+
+interface Props {
+  data: any;
+}
+const { data } = Astro.props;
+const { hero, services, whyUs, areas, faq, closingCta } = data;
+---
+  <section class="hero">
+    <div class="wrap">
+      <div class="badge" data-tina-field={tinaField(hero, 'badge')}>{hero.badge}</div>
+      <h1>
+        <span data-tina-field={tinaField(hero, 'headingPlain')}>{hero.headingPlain}</span>
+        <span class="accent" data-tina-field={tinaField(hero, 'headingAccent')}>{hero.headingAccent}</span>
+      </h1>
+      <p class="lead" data-tina-field={tinaField(hero, 'lead')}>{hero.lead}</p>
+      <div class="cta-row">
+        <a class="pill pill-primary" href={hero.bookHref} data-tina-field={tinaField(hero, 'bookLabel')}>{hero.bookLabel}</a>
+        <a class="pill pill-outline" href={business.phoneHref} style="border-color:rgba(255,255,255,.4); color:#fff;">Call {business.phone}</a>
+      </div>
+      <div class="trust-row" data-tina-field={tinaField(hero, 'trust')}>
+        {hero.trust.map((item: string) => <div>✓ {item}</div>)}
+      </div>
+      <figure class="hero-figure">
+        <img
+          src={hero.imageSrc}
+          width={hero.imageWidth}
+          height={hero.imageHeight}
+          alt={hero.imageAlt}
+          fetchpriority="high"
+          decoding="async"
+          data-tina-field={tinaField(hero, 'imageSrc')}
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="bg-sky">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-tina-field={tinaField(services, 'eyebrow')}>{services.eyebrow}</span>
+        <h2 data-tina-field={tinaField(services, 'heading')}>{services.heading}</h2>
+        <p>
+          <span data-tina-field={tinaField(services, 'introBefore')}>{services.introBefore}</span><a href={services.introLinkHref} data-tina-field={tinaField(services, 'introLinkLabel')}>{services.introLinkLabel}</a>{services.introAfter}
+        </p>
+      </div>
+      <div class="grid grid-4">
+        {services.cards.map((card: any) => (
+          <a class="feature" href={card.href} style="text-decoration:none; color:inherit; display:block;" data-tina-field={tinaField(card, 'title')}><div class="icon">{card.icon}</div><h3>{card.title}</h3><p>{card.description}</p></a>
+        ))}
+      </div>
+      <div class="cta-row" style="margin-top:32px;"><a class="pill pill-dark" href={services.ctaHref} data-tina-field={tinaField(services, 'ctaLabel')}>{services.ctaLabel}</a></div>
+    </div>
+  </section>
+
+  <section class="bg-navy" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-tina-field={tinaField(whyUs, 'eyebrow')}>{whyUs.eyebrow}</span>
+        <h2 style="color:#fff;" data-tina-field={tinaField(whyUs, 'heading')}>{whyUs.heading}</h2>
+      </div>
+      <ul class="check-list" style="grid-template-columns:1fr 1fr;">
+        {whyUs.points.map((point: any) => (
+          <li data-tina-field={tinaField(point, 'lead')}><b>{point.lead}</b> {point.text}</li>
+        ))}
+      </ul>
+      <div class="cta-row" style="margin-top:28px;"><a class="pill pill-primary" href={whyUs.ctaHref} data-tina-field={tinaField(whyUs, 'ctaLabel')}>{whyUs.ctaLabel}</a></div>
+    </div>
+  </section>
+
+  <section class="bg-white" id="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-tina-field={tinaField(areas, 'eyebrow')}>{areas.eyebrow}</span>
+        <h2 data-tina-field={tinaField(areas, 'heading')}>{areas.heading}</h2>
+        <p data-tina-field={tinaField(areas, 'intro')}>{areas.intro}</p>
+      </div>
+      <div class="grid grid-4">
+        {business.areasServed.map((area) => {
+          const slug = area.toLowerCase().replace(/\s+/g, '-');
+          return <a href={`/computer-repairs-${slug}/`} class="area-chip" style="text-decoration:none; color:inherit; display:block;">{area}</a>
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-tina-field={tinaField(faq, 'eyebrow')}>{faq.eyebrow}</span>
+        <h2 data-tina-field={tinaField(faq, 'heading')}>{faq.heading}</h2>
+      </div>
+      {faq.items.map((item: any) => (
+        <details class="faq" data-tina-field={tinaField(item, 'question')}>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-accent cta-banner">
+    <div class="wrap">
+      <h2 data-tina-field={tinaField(closingCta, 'heading')}>{closingCta.heading}</h2>
+      <p data-tina-field={tinaField(closingCta, 'text')}>{closingCta.text}</p>
+      <div class="cta-row">
+        <a class="pill pill-dark" href={closingCta.bookHref} data-tina-field={tinaField(closingCta, 'bookLabel')}>{closingCta.bookLabel}</a>
+        <a class="pill pill-dark" href={business.phoneHref}>Call {business.phone}</a>
+      </div>
+    </div>
+  </section>

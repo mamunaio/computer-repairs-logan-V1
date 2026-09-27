@@ -1,0 +1,175 @@
+  - name: index
+    label: Home
+    type: file
+    path: src/data/pages/index.json
+    format: json
+    fields:
+      - name: seo
+        label: Search listing
+        type: object
+        fields:
+          - name: title
+            label: Page title
+            description: What Google shows as the blue headline. Aim for under 60 characters.
+            type: string
+          - name: description
+            label: Meta description
+            description: The grey text under the headline in search results. 120 to 160 characters.
+            type: text
+
+      - name: hero
+        label: Top of page
+        type: object
+        fields:
+          - name: badge
+            label: Small badge above the heading
+            type: string
+          - name: headingPlain
+            label: Heading, first part
+            description: Shown in white.
+            type: string
+          - name: headingAccent
+            label: Heading, highlighted part
+            description: Shown in blue.
+            type: string
+          - name: lead
+            label: Opening paragraph
+            type: text
+          - name: bookLabel
+            label: Button text
+            type: string
+          - name: bookHref
+            label: Button link
+            type: string
+          - name: trust
+            label: Tick points
+            description: The four short items under the buttons. The tick is added automatically.
+            type: string
+            list: true
+          - name: imageSrc
+            label: Hero photo
+            type: image
+          - name: imageAlt
+            label: Photo description
+            description: Describes the photo for screen readers and Google Images. Say what is happening in it.
+            type: string
+          - name: imageWidth
+            label: Photo width in pixels
+            type: number
+          - name: imageHeight
+            label: Photo height in pixels
+            type: number
+
+      - name: services
+        label: What We Fix section
+        type: object
+        fields:
+          - name: eyebrow
+            label: Small label above the heading
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: introBefore
+            label: Intro text, before the link
+            description: Keep the trailing space.
+            type: text
+          - name: introLinkLabel
+            label: Link text
+            type: string
+          - name: introLinkHref
+            label: Link URL
+            type: string
+          - name: introAfter
+            label: Intro text, after the link
+            type: string
+          - name: cards
+            label: Service cards
+            type: object
+            list:
+              collapsible:
+                summary: '{fields.title}'
+            fields:
+              - name: icon
+                label: Emoji
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: description
+                label: One-line description
+                type: text
+              - name: href
+                label: Links to
+                type: string
+          - name: ctaLabel
+            label: Button text
+            type: string
+          - name: ctaHref
+            label: Button link
+            type: string
+
+      - name: whyUs
+        label: Why Locals Call Us section
+        type: object
+        fields:
+          - name: eyebrow
+            label: Small label above the heading
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: points
+            label: Points
+            type: object
+            list:
+              collapsible:
+                summary: '{fields.lead}'
+            fields:
+              - name: lead
+                label: Bold opening
+                type: string
+              - name: text
+                label: Rest of the sentence
+                type: text
+          - name: ctaLabel
+            label: Button text
+            type: string
+          - name: ctaHref
+            label: Button link
+            type: string
+
+      - name: areas
+        label: Where We Work section
+        description: >-
+          The suburb chips themselves come from src/config/business.ts, which
+          also feeds the areaServed list in the page's schema so the two cannot
+          drift apart. Changing the suburb list is a Claude Code job.
+        type: object
+        fields:
+          - name: eyebrow
+            label: Small label above the heading
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: intro
+            label: Intro text
+            type: text
+
+      - name: closingCta
+        label: Bottom banner
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: text
+            label: Text
+            type: text
+          - name: bookLabel
+            label: Button text
+            type: string
+          - name: bookHref
+            label: Button link
+            type: string

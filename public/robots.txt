@@ -1,2 +1,22 @@
 User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /tina-island/
+
+# AI search engines — allow, so the site can appear in AI answers
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Data-harvesting scrapers — disallow
+User-agent: Bytespider
 Disallow: /
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://www.computerrepairslogan.com.au/sitemap.xml

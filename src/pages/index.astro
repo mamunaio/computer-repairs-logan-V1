@@ -1,51 +1,53 @@
 ---
+// Homepage — content comes from src/data/pages/index.json through the Tina
+// client, so the body can be edited by clicking it in the visual editor.
+// The other 101 pages still use the migrated headHtml/bodyHtml strings.
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import TrustBadges from '../components/TrustBadges.astro';
-import MasterCablerSection from '../components/MasterCablerSection.astro';
-import FeaturedAwards from '../components/FeaturedAwards.astro';
-import ServicesGrid from '../components/ServicesGrid.astro';
-import ActiveDeterrenceShowcase from '../components/ActiveDeterrenceShowcase.astro';
-import MobileAppViewer from '../components/MobileAppViewer.astro';
-import Inclusions from '../components/Inclusions.astro';
-import SystemComparison from '../components/SystemComparison.astro';
-import PricingPackages from '../components/PricingPackages.astro';
-import ProcessSteps from '../components/ProcessSteps.astro';
-import LocalCaseStudy from '../components/LocalCaseStudy.astro';
-import InstallerProfile from '../components/InstallerProfile.astro';
-import Reviews from '../components/Reviews.astro';
-import SuburbGrid from '../components/SuburbGrid.astro';
-import CarindaleServiceArea from '../components/CarindaleServiceArea.astro';
-import Faq from '../components/Faq.astro';
-import QuoteForm from '../components/QuoteForm.astro';
-import WomBadges from '../components/WomBadges.astro';
-import Footer from '../components/Footer.astro';
----
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import HomeBody from '../components/islands/HomeBody.astro';
+import { business } from '../config/business';
+import { getHome } from '../lib/data';
 
-<Layout
-  title="CCTV & Security Camera Installation in Logan | CCTV Logan"
-  description="Professionally installed CCTV & security camera systems for local homes and businesses in Logan and surrounding Logan City suburbs. Licensed QLD installers, tidy cabling, clear night vision, mobile viewing."
->
-  <Header />
-  <Hero />
-  <TrustBadges />
-  <MasterCablerSection />
-  <FeaturedAwards />
-  <ServicesGrid />
-  <ActiveDeterrenceShowcase />
-  <MobileAppViewer />
-  <Inclusions />
-  <SystemComparison />
-  <PricingPackages />
-  <ProcessSteps />
-  <LocalCaseStudy />
-  <InstallerProfile />
-  <Reviews />
-  <SuburbGrid />
-  <Faq />
-  <QuoteForm />
-  <WomBadges />
-  <CarindaleServiceArea />
-  <Footer />
+const result = await getHome();
+const data = result.data.home;
+const seo = data.seo;
+
+// Suburb list drives both the chips and areaServed here, so the two
+// can no longer drift apart. Edit it in src/config/business.ts.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: business.name,
+  telephone: '+61731446777',
+  email: business.email,
+  url: business.url,
+  areaServed: [...business.areasServed],
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Logan Central',
+    addressRegion: 'QLD',
+    postalCode: '4114',
+    addressCountry: 'AU',
+  },
+};
+---
+<Layout>
+<Fragment slot="head">
+<title>{seo.title}</title>
+<meta name="description" content={seo.description}>
+<link rel="canonical" href={business.url}>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content={seo.title}>
+<meta property="og:description" content={seo.description}>
+<meta property="og:url" content={business.url}>
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json" set:html={'\n' + JSON.stringify(schema, null, 2) + '\n'}></script>
+</Fragment>
+
+<TinaIsland name="home" wrapper={{ tag: 'div' }} primary>
+  <HomeBody data={data} />
+</TinaIsland>
 </Layout>

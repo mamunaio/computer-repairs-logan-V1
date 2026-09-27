@@ -1,0 +1,149 @@
+{
+  "seo": {
+    "title": "Computer Repairs Logan | Fast, Affordable Local PC & Laptop Repairs",
+    "description": "Computer repairs in Logan for laptops, desktops and Macs. Virus removal, data recovery, screen replacement and more, at your place or drop-off. Same-day on common jobs. Call 07 3144 6777."
+  },
+  "hero": {
+    "badge": "💻 Local Computer & Laptop Repairs · Logan & Surrounds",
+    "headingPlain": "Computer Repairs Logan.",
+    "headingAccent": "Fast, Honest And Local.",
+    "lead": "Slow, broken or won't turn on? We repair laptops, desktops and Macs right across Logan, from Woodridge and Loganlea to Springwood, Beenleigh and Browns Plains. Virus removal, data recovery, screen replacement, tune-ups and setups, at your place or as a quick drop-off, most common jobs sorted the same day.",
+    "bookLabel": "Book A Repair",
+    "bookHref": "/contact/",
+    "trust": [
+      "All Brands, Any Fault",
+      "Onsite Or Drop-Off",
+      "Same-Day On Common Jobs",
+      "Honest, Upfront Pricing"
+    ],
+    "imageSrc": "/images/tech-logan.jpg",
+    "imageAlt": "Technician using a precision screwdriver to repair an opened laptop",
+    "imageWidth": 1400,
+    "imageHeight": 758
+  },
+  "services": {
+    "eyebrow": "What We Fix",
+    "heading": "Computer & Laptop Repairs In Logan.",
+    "introBefore": "Whatever has gone wrong, there is a good chance we have seen it before. Pick a service, or just ",
+    "introLinkLabel": "tell us what is happening",
+    "introLinkHref": "/contact/",
+    "introAfter": ".",
+    "cards": [
+      {
+        "icon": "🖥️",
+        "title": "Computer Repairs",
+        "description": "Desktops and all-in-ones diagnosed and fixed, whatever the brand or fault.",
+        "href": "/computer-repairs-logan/"
+      },
+      {
+        "icon": "💻",
+        "title": "Laptop Repairs",
+        "description": "Screens, batteries, charging ports, hinges and boards, every major brand.",
+        "href": "/laptop-repairs-logan/"
+      },
+      {
+        "icon": "🍏",
+        "title": "Apple Mac Repairs",
+        "description": "MacBook, iMac and Mac Mini repairs, often cheaper than the Apple Store.",
+        "href": "/mac-repairs-logan/"
+      },
+      {
+        "icon": "🛡️",
+        "title": "Virus & Spyware Removal",
+        "description": "Malware, pop-ups and ransomware cleaned out, with protection set up after.",
+        "href": "/virus-spyware-removal-logan/"
+      },
+      {
+        "icon": "💾",
+        "title": "Data Recovery",
+        "description": "Photos, documents and work recovered from failing or dead drives.",
+        "href": "/data-recovery-logan/"
+      },
+      {
+        "icon": "📱",
+        "title": "Laptop Screen Replacement",
+        "description": "Cracked, dim or dead screens replaced, same day on common models.",
+        "href": "/laptop-screen-replacement-logan/"
+      },
+      {
+        "icon": "⚡",
+        "title": "Computer Tune-Up",
+        "description": "A slow computer cleaned up and sped back to how it should run.",
+        "href": "/computer-tune-up-logan/"
+      },
+      {
+        "icon": "📦",
+        "title": "New Computer Setup",
+        "description": "Your new machine set up, your old one moved across, ready to go.",
+        "href": "/new-computer-setup-logan/"
+      }
+    ],
+    "ctaLabel": "See All Services",
+    "ctaHref": "/services/"
+  },
+  "whyUs": {
+    "eyebrow": "Why Locals Call Us",
+    "heading": "Repairs Done Properly, Without The Runaround.",
+    "points": [
+      {
+        "lead": "Local to Logan.",
+        "text": "We know the area and come to homes and businesses right across it."
+      },
+      {
+        "lead": "Fair, upfront pricing.",
+        "text": "You get a clear price before any work starts, with no surprises."
+      },
+      {
+        "lead": "Board-level know-how.",
+        "text": "We repair the actual fault where we can, instead of just swapping parts."
+      },
+      {
+        "lead": "Your data comes first.",
+        "text": "We back up before we start, so nothing important is put at risk."
+      }
+    ],
+    "ctaLabel": "Book A Repair",
+    "ctaHref": "/contact/"
+  },
+  "areas": {
+    "eyebrow": "Where We Work",
+    "heading": "Computer Repairs Across Logan.",
+    "intro": "We cover Logan City and the surrounding southside suburbs, onsite or drop-off."
+  },
+  "faq": {
+    "eyebrow": "Common Questions",
+    "heading": "Computer Repairs In Logan, Answered.",
+    "items": [
+      {
+        "question": "How much does a computer repair cost?",
+        "answer": "Every repair is different, so we don't quote a flat price before we've had a look. A cracked laptop screen costs less to fix than a failed hard drive, and a slow PC that just needs a clean-out costs less again. You get a straight quote before anything is booked in, and there's no charge for the diagnosis if you decide not to go ahead."
+      },
+      {
+        "question": "Do you repair laptops and desktop PCs?",
+        "answer": "Yes, both. Laptops, desktops, all-in-ones, and Apple Macs."
+      },
+      {
+        "question": "Can you come to my home in Logan to fix my computer?",
+        "answer": "Yes. Onsite visits across Logan Central, Woodridge, Loganlea, Springwood, Beenleigh, Browns Plains, Marsden and Shailer Park, plus remote support for software issues that don't need a technician on-site."
+      },
+      {
+        "question": "Can you replace my laptop battery?",
+        "answer": "Yes, most laptop batteries can be swapped same day. See our laptop battery replacement page for common models and signs your battery needs replacing."
+      },
+      {
+        "question": "Is it cheaper to replace a hard drive or buy a new computer?",
+        "answer": "Almost always cheaper to repair. A hard drive swap or upgrade runs a fraction of a new machine's price, and we'll tell you honestly if your computer's not worth fixing before we start."
+      },
+      {
+        "question": "Do you offer business IT services in Logan?",
+        "answer": "Yes. Setup, upgrades, and ongoing support for small businesses, not just home users."
+      }
+    ]
+  },
+  "closingCta": {
+    "heading": "Computer Playing Up?",
+    "text": "Tell us what is going wrong and we'll come back the same day with a price to fix it.",
+    "bookLabel": "Book A Repair",
+    "bookHref": "/contact/"
+  }
+}

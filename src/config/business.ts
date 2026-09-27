@@ -1,0 +1,36 @@
+// Single source of truth for Computer Repairs Logan NAP + service areas.
+export const business = {
+  name: 'Computer Repairs Logan',
+  phone: '07 3144 6777',
+  phoneHref: 'tel:+61731446777',
+  email: 'hello@computerrepairslogan.com.au',
+  url: 'https://www.computerrepairslogan.com.au/',
+  areasServed: [
+    
+    "Logan Central",
+    "Woodridge",
+    "Loganlea",
+    "Springwood",
+    "Shailer Park",
+    "Marsden",
+    "Kingston",
+    "Waterford",
+    "Beenleigh",
+    "Meadowbrook",
+    "Slacks Creek",
+    "Daisy Hill",
+    "Rochedale South",
+    "Underwood",
+    "Cornubia",
+    "Loganholme",
+    "Browns Plains",
+    "Regents Park",
+    "Park Ridge",
+    "Crestmead",
+    "Hillcrest",
+    "Boronia Heights",
+    "Greenbank",
+    "Bethania"
+],
+  hours: 'Mon-Sun 7:00 AM - 10:00 PM',
+} as const;

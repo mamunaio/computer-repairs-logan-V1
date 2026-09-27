@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { business } from '../config/business';
+import data from '../data/pages/coverage-area.json';
+
+const suburbs = business.areasServed;
+---
+
+<Layout headHtml={`
+  <title>${data.seo.title}</title>
+  <meta name="description" content="${data.seo.description}">
+  <meta property="og:title" content="${data.seo.title}">
+  <meta property="og:description" content="${data.seo.description}">
+  <link rel="canonical" href="https://www.computerrepairslogan.com.au/coverage-area/">
+`} bodyHtml={`
+  <section class="wrap" style="padding: 48px 0;">
+    <div style="max-width: 800px;">
+      <span style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; display: block; margin-bottom: 8px;">${data.intro.eyebrow}</span>
+      <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 16px;">${data.intro.heading}</h1>
+      <p style="font-size: 1.0625rem; line-height: 1.6; color: #475569; margin-bottom: 32px;">${data.intro.text}</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom: 48px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px;">
+      ${suburbs.map((suburb) => {
+        const slug = suburb.toLowerCase().replace(/\s+/g, '-');
+        return `
+          <a href="/computer-repairs-${slug}/" style="
+            padding: 16px 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            text-align: center;
+            transition: all 0.2s ease;
+            background: #f8fafc;
+          "
+          onmouseover="this.style.borderColor='#6fc9b4'; this.style.backgroundColor='#f0faf7';"
+          onmouseout="this.style.borderColor='#e2e8f0'; this.style.backgroundColor='#f8fafc';"
+          >
+            ${suburb}
+          </a>
+        `;
+      }).join('')}
+    </div>
+  </section>
+
+  <section style="background: #0f172a; color: #fff; padding: 48px 0; margin-top: 48px;">
+    <div class="wrap">
+      <h2 style="margin-bottom: 16px;">Computer Playing Up?</h2>
+      <p style="margin-bottom: 24px; font-size: 1.0625rem;">Tell us what's going wrong and we'll come back the same day with a price to fix it.</p>
+      <a href="/contact/" style="
+        display: inline-block;
+        padding: 12px 24px;
+        background: #d97a35;
+        color: #000;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: background 0.2s ease;
+      "
+      onmouseover="this.style.background='#c26a2c';"
+      onmouseout="this.style.background='#d97a35';"
+      >Book A Repair</a>
+      <a href="tel:+61731446777" style="
+        display: inline-block;
+        margin-left: 12px;
+        padding: 12px 24px;
+        border: 1px solid #fff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      "
+      onmouseover="this.style.background='#fff'; this.style.color='#000';"
+      onmouseout="this.style.background='transparent'; this.style.color='#fff';"
+      >Call ${business.phone}</a>
+    </div>
+  </section>
+`} />
