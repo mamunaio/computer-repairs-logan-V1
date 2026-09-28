@@ -21,14 +21,24 @@ import SystemComparison from '../../components/cctv-security-cameras-logan/Syste
 import TrustBadges from '../../components/cctv-security-cameras-logan/TrustBadges.astro';
 import WomBadges from '../../components/cctv-security-cameras-logan/WomBadges.astro';
 import CctvLayout from '../../layouts/CctvLayout.astro';
+import { fetchContent } from '../../lib/content-client';
+
+const content = await fetchContent('logan');
 ---
 
 <CctvLayout 
-  title="CCTV & Security Camera Installation Logan | Computer Repairs Logan" 
-  description="Professionally installed CCTV & security camera systems for local homes and businesses in Logan Central, Springwood, Browns Plains, Beenleigh, and wider Logan City. Licensed QLD installers, tidy cabling, clear night vision, mobile viewing."
+  title={`${content.seo.title} | Computer Repairs Logan`} 
+  description={content.seo.description}
 >
   <Header />
-  <Hero />
+  <Hero 
+    heading={content.hero.heading}
+    subheading={content.hero.subheading}
+    description={content.hero.description}
+    bullet_1={content.hero.bullet_1}
+    bullet_2={content.hero.bullet_2}
+    bullet_3={content.hero.bullet_3}
+  />
   <TrustBadges />
   <MasterCablerSection />
   <FeaturedAwards />
