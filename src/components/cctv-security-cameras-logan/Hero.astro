@@ -1,21 +1,23 @@
 ---
-// Component: Hero.astro for CCTV Security Cameras Logan
+// Component: Hero.astro for CCTV Security Cameras
 interface Props {
   heading?: string;
   subheading?: string;
   description?: string;
-  bullet_1?: string;
-  bullet_2?: string;
-  bullet_3?: string;
+  bullet1?: string;
+  bullet2?: string;
+  bullet3?: string;
+  suburb?: string;
 }
 
 const {
   heading = "CCTV Security Cameras in Logan",
   subheading = "Professional CCTV Installation",
-  description = "Professional CCTV installation for homes and businesses.",
-  bullet_1 = "Professional installation",
-  bullet_2 = "Mobile viewing",
-  bullet_3 = "No monthly fees",
+  description = "Professionally installed hard-wired camera systems for local Logan homes and businesses, with tidy cabling, clear night footage, mobile viewing and reliable ongoing support.",
+  bullet1 = "Professional installation",
+  bullet2 = "Mobile viewing",
+  bullet3 = "No monthly fees",
+  suburb = "Logan"
 } = Astro.props;
 ---
 <section class="relative pt-10 pb-20 lg:pt-14 lg:pb-24 overflow-hidden" id="hero-section">
@@ -32,12 +34,18 @@ const {
         <!-- Dispatch Live Ticker -->
         <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300 text-xs font-black uppercase tracking-wider shadow-sm">
           <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-          <span>🟢 ON-DUTY IN LOGAN CITY &amp; SURROUNDS • $0 SITE ASSESSMENTS</span>
+          <span>⚡ ON-DUTY IN {suburb.toUpperCase()} CITY &amp; SURROUNDS • $0 SITE ASSESSMENTS</span>
         </div>
 
+        {subheading && (
+          <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+            {subheading}
+          </div>
+        )}
+
         <!-- Strict H1 -->
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:white leading-[1.08]">
-          {heading} {subheading && <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700">{subheading}</span>}
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.08]">
+          {heading}
         </h1>
 
         <!-- Lead Paragraph -->
@@ -45,28 +53,28 @@ const {
           {description}
         </p>
 
-        <!-- Dynamic Bullet Badges -->
-        {(bullet_1 || bullet_2 || bullet_3) && (
-          <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
-            {bullet_1 && (
-              <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span>{bullet_1}</span>
-              </li>
+        <!-- Live Bullet Points from Sheet -->
+        {(bullet1 || bullet2 || bullet3) && (
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 pt-1">
+            {bullet1 && (
+              <div class="inline-flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>{bullet1}</span>
+              </div>
             )}
-            {bullet_2 && (
-              <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span>{bullet_2}</span>
-              </li>
+            {bullet2 && (
+              <div class="inline-flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>{bullet2}</span>
+              </div>
             )}
-            {bullet_3 && (
-              <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                <span>{bullet_3}</span>
-              </li>
+            {bullet3 && (
+              <div class="inline-flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span>{bullet3}</span>
+              </div>
             )}
-          </ul>
+          </div>
         )}
 
         <!-- Button Row -->

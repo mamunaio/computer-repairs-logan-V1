@@ -1,4 +1,5 @@
 ---
+import { fetchContent } from '../../lib/content-client';
 import ActiveDeterrenceShowcase from '../../components/cctv-security-cameras-logan/ActiveDeterrenceShowcase.astro';
 import Faq from '../../components/cctv-security-cameras-logan/Faq.astro';
 import FeaturedAwards from '../../components/cctv-security-cameras-logan/FeaturedAwards.astro';
@@ -21,23 +22,27 @@ import SystemComparison from '../../components/cctv-security-cameras-logan/Syste
 import TrustBadges from '../../components/cctv-security-cameras-logan/TrustBadges.astro';
 import WomBadges from '../../components/cctv-security-cameras-logan/WomBadges.astro';
 import CctvLayout from '../../layouts/CctvLayout.astro';
-import { fetchContent } from '../../lib/content-client';
 
-const content = await fetchContent('logan');
+const API_BASE_URL = import.meta.env.CONTENT_API_URL || 'http://127.0.0.1:8787';
+const SUBURB_SLUG = 'logan';
+
+const data = await fetchContent(API_BASE_URL, SUBURB_SLUG);
+const { site, hero, seo } = data.content;
 ---
 
 <CctvLayout 
-  title={`${content.seo.title} | Computer Repairs Logan`} 
-  description={content.seo.description}
+  title={seo.title} 
+  description={seo.description}
 >
   <Header />
   <Hero 
-    heading={content.hero.heading}
-    subheading={content.hero.subheading}
-    description={content.hero.description}
-    bullet_1={content.hero.bullet_1}
-    bullet_2={content.hero.bullet_2}
-    bullet_3={content.hero.bullet_3}
+    heading={hero.heading}
+    subheading={hero.subheading}
+    description={hero.description}
+    bullet1={hero.bullet_1}
+    bullet2={hero.bullet_2}
+    bullet3={hero.bullet_3}
+    suburb={site.suburb}
   />
   <TrustBadges />
   <MasterCablerSection />
